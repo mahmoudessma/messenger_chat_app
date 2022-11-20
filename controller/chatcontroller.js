@@ -1,7 +1,7 @@
 const Chat = require("../models/chat");
 const User = require("../models/User");
 
-// one t one chat
+// one to one chat
 module.exports.accessChat = async (req, res)=>{
     const {userId} = req.body
     if(!userId ){

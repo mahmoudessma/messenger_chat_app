@@ -1,0 +1,94 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Note & Books API",
+      "description": "Note & Books API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Note & Books",
+        "description": "API"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+        "/message/{chatId}":{
+            "get":{
+                "description":"get all messages of specific chat",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters": [
+                    {  
+						"in":"path",
+						"name":"chatId",
+						"description":"getgte",
+						"required":true,
+						"schema":{  
+							"$ref":"#/definitions/Message"
+						}
+					}
+                    
+                  ],
+                "responses":{
+                    "200":{
+                        "description":"a list of messages",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/messages"
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    
+    },
+    "definitions":{
+        "Message":{
+            "required":[],
+            "properties":{
+                "sender":{
+                   
+                    "type":"string"
+                },
+                "content":{
+                    "type":"string" 
+                },
+                "chat":{
+                    "type":"integer"
+                   
+                },
+                "readBy":{
+                   
+                    "type":"string"
+
+                }
+            }
+        },
+        "messages":{
+            "$ref":"#/definitions/Message"
+
+        }
+    }
+    
+    
+  }
+  
